@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
   <title>Sponge UK Developer Test</title>
 
@@ -29,6 +31,28 @@
 <div class="grid-container">
   <section class="grid-50">
     <!-- INSERT YOUR "ABOUT ME" SECTION HERE -->
+    
+    <div id="aboutme"></div>
+    <dl class="accordion">
+      <dt><a href="">About Me</a></dt>
+      <dd>The jury s out as to whether i am a nerd or geek. Epic Rap Battles of History seems to expand points for both sides of the arguments</dd>
+      <dt><a href="">My Photo</a></dt>
+      <dd><img src="app/images/dmc-on-set-web.jpg"/></dd>
+      <dt><a href="">Favourite Links</a></dt>
+      <dd>
+        <table cellpadding="0" cellspacing="0" width="400px">
+          <tr>
+            <td><a href="https://www.netflix.com/gb/" target="blank">Netflix</a></td>
+            <td><a href="https://www.badmintonmonthly.com/best-badminton-players/" target="blank">Badminton</td>
+          <tr>
+          <tr>
+            <td><a href="https://www.skysports.com/nba?gr=www" target="blank">NBA Basketball</a></td>
+            <td><a href="https://www.atptour.com/" target="blank">Tennis - ATP World Tour</a></td>
+          <tr>
+        </table>  
+      </dd>
+    </dl>
+
     <article id="content"></article>
     <noscript>
       <h1>You must enable JavaScript in order to view this page.</h1>
@@ -69,6 +93,15 @@
     {{/if}}
   </article>
   {{/each}} {{/each}}
+</script>
+
+<!-- Task item Handlebars template -->
+<script id="aboutme-template" type="text/x-handlebars-template">
+  <h4 class="no-bottom-padding">{{title}}</h4>
+  <h6>{{subtitle}}</h6>
+
+ 
+
 </script>
 
 <!-- Main content Handlebars template -->

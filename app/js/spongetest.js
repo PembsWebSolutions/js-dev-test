@@ -17,85 +17,121 @@
 */
 
 jQuery(
-		function( $ ) {
-			/**
-			 * A new instance of the content parser using the content JSON file
-			 */
-			var resContent = new Content( 'app/data/content.json' );
+	function( $ ) {
+		/**
+		 * A new instance of the content parser using the content JSON file
+		 */
+		var resContent = new Content( 'app/data/content.json' );
 
-			/**
-			 * Populate the header
-			 */
-			var populateHeader = function() {
-				var strHeaderSource = $( '#header-template' ).html(),
-						resHeaderTemplate = Handlebars.compile( strHeaderSource ),
-						strHeaderHTML = resHeaderTemplate( resContent.getItem( 'header' ) );
+		/**
+		 * Populate the header
+		 */
+		var populateHeader = function() {
+			var strHeaderSource = $( '#header-template' ).html(),
+					resHeaderTemplate = Handlebars.compile( strHeaderSource ),
+					strHeaderHTML = resHeaderTemplate( resContent.getItem( 'header' ) );
 
-				$( '#header' ).html( strHeaderHTML );
-			};
+			$( '#header' ).html( strHeaderHTML );
+		};
 
-			/**
-			 * Populate the tasks
-			 */
-			var populateTasks = function() {
-				var strTaskSource = $( '#task-template' ).html(),
-						resTasksTemplate = Handlebars.compile( strTaskSource ),
-						strTasksHTML = resTasksTemplate( resContent.getItem( 'tasks' ) );
+		/**
+		 * Populate the tasks
+		 */
+		var populateTasks = function() {
+			var strTaskSource = $( '#task-template' ).html(),
+					resTasksTemplate = Handlebars.compile( strTaskSource ),
+					strTasksHTML = resTasksTemplate( resContent.getItem( 'tasks' ) );
 
-				$( '#tasks' ).append( strTasksHTML );
-			};
+			$( '#tasks' ).append( strTasksHTML );
+		};
 
-			/**
-			 * Populate the content
-			 */
-			var populateContent = function() {
-				var strContentSource = $( '#content-template' ).html(),
-						resContentTemplate = Handlebars.compile( strContentSource ),
-						strContentHTML = resContentTemplate( resContent.getItem( 'content' ) );
+		/**
+		 * Populate the content
+		 */
+		var populateContent = function() {
+			var strContentSource = $( '#content-template' ).html(),
+					resContentTemplate = Handlebars.compile( strContentSource ),
+					strContentHTML = resContentTemplate( resContent.getItem( 'content' ) );
 
-				$( '#content' ).append( strContentHTML );
-			};
+			$( '#content' ).append( strContentHTML );
+		};
 
-			/**
-			 * Populate the documentation links
-			 */
-			var populateDocumentation = function() {
-				var strContentSource = $( '#documentation-template' ).html(),
-						resContentTemplate = Handlebars.compile( strContentSource ),
-						strContentHTML = resContentTemplate( resContent.getItem( 'documents' ) );
+		/**
+		 * Populate the documentation links
+		 */
+		var populateDocumentation = function() {
+			var strContentSource = $( '#documentation-template' ).html(),
+					resContentTemplate = Handlebars.compile( strContentSource ),
+					strContentHTML = resContentTemplate( resContent.getItem( 'documents' ) );
 
-				$( '#documentation' ).append( strContentHTML );
-			};
+			$( '#documentation' ).append( strContentHTML );
+		};
 
-			/**
-			 * Register a Handlebars helper for the difficulty stars
-			 */
-			Handlebars.registerHelper( 'difficulty',
-					function( intStars ) {
-						var strHTMLStarsOut = '';
+		/**
+		 * Populate the 'about me' section
+		 */
+		var aboutMeDocumentation = function() {
+			var strContentSource = $( '#aboutme-template' ).html(),
+					resContentTemplate = Handlebars.compile( strContentSource ),
+					strContentHTML = resContentTemplate( resContent.getItem( 'aboutme' ) );
 
-						for( var intStar = 0; intStar < intStars; intStar++ ) {
-							strHTMLStarsOut += '<i class="fa fa-star"></i>';
-						}
+			$( '#aboutme' ).append( strContentHTML );
+		};
 
-						for( var intBlankStar = intStars; intBlankStar < 5; intBlankStar++ ) {
-							strHTMLStarsOut += '<i class="fa fa-star-o"></i>';
-						}
+		/**
+		 * Register a Handlebars helper for the difficulty stars
+		 */
+		Handlebars.registerHelper( 'difficulty',
+				function( intStars ) {
+					var strHTMLStarsOut = '';
 
-						return strHTMLStarsOut;
+					for( var intStar = 0; intStar < intStars; intStar++ ) {
+						strHTMLStarsOut += '<i class="fa fa-star"></i>';
 					}
-			);
 
-			/**
-			 * When the content file is ready, actually populate the content
-			 */
-			resContent.onReady(
-					function() {
-						populateHeader();
-						populateTasks();
-						populateContent();
-						populateDocumentation();
+					for( var intBlankStar = intStars; intBlankStar < 5; intBlankStar++ ) {
+						strHTMLStarsOut += '<i class="fa fa-star-o"></i>';
 					}
-			);
-		}
+
+					return strHTMLStarsOut;
+				}
+		);
+
+		/**
+		 * When the content file is ready, actually populate the content
+		 */
+		resContent.onReady(
+				function() {
+					populateHeader();
+					populateTasks();
+					populateContent();
+					populateDocumentation();
+					aboutMeDocumentation();
+				}
+		);
+
+
+		var allPanels = $('.accordion > dd').hide();
+
+		$('.accordion > dt > a').click(function () {
+			$this = $(this);
+			$target = $this.parent().next();
+
+			if (!$target.hasClass('active')) {
+			allPanels.removeClass('active').slideUp();
+			$target.addClass('active').slideDown();
+			}
+
+			return false;
+		});
+
+
+
+		
+	}
 );
+
+
+
+
+  
