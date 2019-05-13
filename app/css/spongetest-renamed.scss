@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300|Roboto:300,300i,500,500i");
+@import "variables.scss";
+ 
+/*
+ =====================================================
+
+   _____                                _    _ _  __
+  / ____|                              | |  | | |/ /
+ | (___  _ __   ___  _ __   __ _  ___  | |  | | ' /
+  \___ \| '_ \ / _ \| '_ \ / _` |/ _ \ | |  | |  <
+  ____) | |_) | (_) | | | | (_| |  __/ | |__| | . \
+ |_____/| .__/ \___/|_| |_|\__, |\___|  \____/|_|\_\
+        | |                 __/ |
+        |_|                |___/
+
+=====================================================
+ SPONGE UK DEVELOPER TEST
+ Main CSS
+=====================================================
+*/
+    
+body {
+    min-width: 320px;
+    font-family: "Roboto", serif;
+    color: $charcoal;  
+    font-weight: 300;
+
+    #header-wrapper {
+        position: relative;
+        background: $darkorange;
+        z-index: 2;
+
+        #header {
+            padding-top: 60px;
+            padding-bottom: 45px;
+            color: $white;
+    
+            img {
+                margin-right: auto;
+                margin-bottom: 30px;
+                margin-left: auto;
+                display: block;
+            }
+    
+            h1 {
+                color: $white;
+    
+                & + p {
+                    font-size: 1.8em;
+                }
+            }
+        }
+    }
+    
+    #tasks {
+        article {
+            counter-increment: tasks;
+
+            h5 {
+                color: $darkorange;
+            }
+
+            &::before {
+                min-width: 0.75em;
+                padding-right: 0.5em;
+                display: inline-block;
+                color: $charcoal;
+                font-weight: 300;
+                vertical-align: text-bottom;
+                content: counter(tasks) ".";
+            }
+
+            &.difficulty {
+                margin-left: 1.5em;
+                /*display: inline-block; - This inline-block is ignore due to the float being applied */
+                float: right;
+                color: $auburn;
+                font-size: 0.8em;
+                white-space: nowrap;
+
+                &.fa {
+                    margin-left: 0.1em;
+                }
+
+                &.fa-star-o {
+                    color: $tangrey;
+                }
+            } 
+        }
+    }
+
+    #footer-wrapper {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        position: relative;
+        color: $white;
+        background-color: $charcoal;
+        z-index: 2;
+
+        #footer {
+            a {
+                color: inherit;
+            }
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+    font-weight: 300;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+    color: $darkorange;
+    }
+
+    h2 {
+    font-family: 'Times New Roman', Times, serif;
+    color: $black;
+    }
+
+    p,
+    ul,
+    ol {
+    font-size: 1.5em;
+    }
+
+    p code,
+    li code {
+    padding-right: 0.2em;
+    padding-left: 0.2em;
+    line-height: 1.35;
+    vertical-align: baseline;
+    font-size: 0.9em;
+    background-color: $lightgrey;
+    outline: none;
+    }
+
+    code,
+    pre {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
+    }
+
+    strong {
+    font-weight: 500;
+    }
+
+    /**
+ * Styles to make the boxes actually visible to start
+ */
+    #boxes {
+        padding: 40px;
+    
+        #box-left {
+        height: 50px;
+        }
+    
+        #box-right {
+        height: 50px;
+        }
+    }
+
+    /*
+Accordion
+*/
+
+    .accordion {
+        margin: 30px;
+    
+        dt {
+        padding: 10px;
+        border: 1px solid $black;
+    
+            a {
+                display: block;
+                color: $black;
+                font-weight: bold;
+            }
+        }
+    
+        dd {
+        border-top: 0;
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid $black;
+        }
+    
+        dt:last-of-type {
+        border-bottom: 1px solid $black;
+        }
+    
+        dd:last-of-type {
+        border-bottom: 1px solid $black;
+        border-top: 1px solid $white;
+        position: relative;
+        top: -1px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    table {
+        td {
+            width: 50%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid $grey;
+            vertical-align: top;
+        }
+    }
+}
+

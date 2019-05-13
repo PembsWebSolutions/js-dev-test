@@ -35,6 +35,17 @@ jQuery(
 		};
 
 		/**
+		 * Populate the 'about me' section
+		 */
+		var populateAboutme = function() {
+			var strContentSource = $( '#aboutme-template' ).html(),
+					resContentTemplate = Handlebars.compile( strContentSource ),
+					strContentHTML = resContentTemplate( resContent.getItem( 'aboutme' ) );
+
+			$( '#aboutme' ).append( strContentHTML );
+		};
+
+		/**
 		 * Populate the tasks
 		 */
 		var populateTasks = function() {
@@ -67,16 +78,7 @@ jQuery(
 			$( '#documentation' ).append( strContentHTML );
 		};
 
-		/**
-		 * Populate the 'about me' section
-		 */
-		var aboutMeDocumentation = function() {
-			var strContentSource = $( '#aboutme-template' ).html(),
-					resContentTemplate = Handlebars.compile( strContentSource ),
-					strContentHTML = resContentTemplate( resContent.getItem( 'aboutme' ) );
-
-			$( '#aboutme' ).append( strContentHTML );
-		};
+		
 
 		/**
 		 * Register a Handlebars helper for the difficulty stars
@@ -101,31 +103,35 @@ jQuery(
 		 * When the content file is ready, actually populate the content
 		 */
 		resContent.onReady(
-				function() {
-					populateHeader();
-					populateTasks();
-					populateContent();
-					populateDocumentation();
-					aboutMeDocumentation();
-				}
+			function() {
+				populateHeader();
+				populateTasks();
+				populateContent();
+				populateDocumentation();
+				populateAboutme();
+			
+
+				var allPanels = $('.accordion > dd').hide();
+
+				$('.accordion > dt > a').click(function () {
+					$this = $(this);
+					$target = $this.parent().next();
+
+					if (!$target.hasClass('active')) {
+					allPanels.removeClass('active').slideUp();
+					$target.addClass('active').slideDown();
+					}
+
+					return false;
+				});
+
+			}
 		);
 
 
-		var allPanels = $('.accordion > dd').hide();
+		
 
-		$('.accordion > dt > a').click(function () {
-			$this = $(this);
-			$target = $this.parent().next();
-
-			if (!$target.hasClass('active')) {
-			allPanels.removeClass('active').slideUp();
-			$target.addClass('active').slideDown();
-			}
-
-			return false;
-		});
-
-
+		
 
 		
 	}

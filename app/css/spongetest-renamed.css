@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300|Roboto:300,300i,500,500i");
+/*
+ =====================================================
+
+   _____                                _    _ _  __
+  / ____|                              | |  | | |/ /
+ | (___  _ __   ___  _ __   __ _  ___  | |  | | ' /
+  \___ \| '_ \ / _ \| '_ \ / _` |/ _ \ | |  | |  <
+  ____) | |_) | (_) | | | | (_| |  __/ | |__| | . \
+ |_____/| .__/ \___/|_| |_|\__, |\___|  \____/|_|\_\
+        | |                 __/ |
+        |_|                |___/
+
+=====================================================
+ SPONGE UK DEVELOPER TEST
+ Main CSS
+=====================================================
+*/
+body {
+  min-width: 320px;
+  font-family: "Roboto", serif;
+  color: #212D35;
+  font-weight: 300;
+   /**
+* Styles to make the boxes actually visible to start
+*/
+    /*
+Accordion
+*/ }
+  body #header-wrapper {
+    position: relative;
+    background: #F9423A;
+    z-index: 2; }
+    body #header-wrapper #header {
+      padding-top: 60px;
+      padding-bottom: 45px;
+      color: #ffffff; }
+      body #header-wrapper #header img {
+        margin-right: auto;
+        margin-bottom: 30px;
+        margin-left: auto;
+        display: block; }
+      body #header-wrapper #header h1 {
+        color: #ffffff; }
+        body #header-wrapper #header h1 + p {
+          font-size: 1.8em; }
+  body #tasks article {
+    counter-increment: tasks; }
+    body #tasks article h5 {
+      color: #F9423A; }
+    body #tasks article::before {
+      min-width: 0.75em;
+      padding-right: 0.5em;
+      display: inline-block;
+      color: #212D35;
+      font-weight: 300;
+      vertical-align: text-bottom;
+      content: counter(tasks) "."; }
+    body #tasks article.difficulty {
+      margin-left: 1.5em;
+      /*display: inline-block; - This inline-block is ignore due to the float being applied */
+      float: right;
+      color: #FFB400;
+      font-size: 0.8em;
+      white-space: nowrap; }
+      body #tasks article.difficulty.fa {
+        margin-left: 0.1em; }
+      body #tasks article.difficulty.fa-star-o {
+        color: #7E7772; }
+  body #footer-wrapper {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    position: relative;
+    color: #ffffff;
+    background-color: #212D35;
+    z-index: 2; }
+    body #footer-wrapper #footer a {
+      color: inherit; }
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    font-weight: 300; }
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    color: #F9423A; }
+  body h2 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000; }
+  body p,
+  body ul,
+  body ol {
+    font-size: 1.5em; }
+  body p code,
+  body li code {
+    padding-right: 0.2em;
+    padding-left: 0.2em;
+    line-height: 1.35;
+    vertical-align: baseline;
+    font-size: 0.9em;
+    background-color: #D4D4D4;
+    outline: none; }
+  body code,
+  body pre {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300; }
+  body strong {
+    font-weight: 500; }
+  body #boxes {
+    padding: 40px; }
+    body #boxes #box-left {
+      height: 50px; }
+    body #boxes #box-right {
+      height: 50px; }
+  body .accordion {
+    margin: 30px; }
+    body .accordion dt {
+      padding: 10px;
+      border: 1px solid #000000; }
+      body .accordion dt a {
+        display: block;
+        color: #000000;
+        font-weight: bold; }
+    body .accordion dd {
+      border-top: 0;
+      font-size: 12px;
+      padding: 10px;
+      border: 1px solid #000000; }
+    body .accordion dt:last-of-type {
+      border-bottom: 1px solid #000000; }
+    body .accordion dd:last-of-type {
+      border-bottom: 1px solid #000000;
+      border-top: 1px solid #ffffff;
+      position: relative;
+      top: -1px; }
+  body a {
+    text-decoration: none; }
+  body table td {
+    width: 50%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    vertical-align: top; }
+
+/*# sourceMappingURL=spongetest-renamed.css.map */

@@ -223,5 +223,6 @@ table td {
   padding: 5px;
   box-sizing: border-box;
   border: 1px solid #ccc;
+  vertical-align: top;
 }
 
