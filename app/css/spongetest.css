@@ -25,6 +25,13 @@ body {
   font-family: "Roboto", serif;
   color: #212D35;
   font-weight: 300;
+  font-size: 125%;
+}
+
+@media screen and (min-width: 501px) {
+  body {
+    font-size: 100%;
+  }
 }
 
 #header-wrapper {
@@ -173,6 +180,8 @@ strong {
 /**
  * Styles to make the boxes actually visible to start
  */
+
+ 
 #boxes {
   padding: 40px;
 }
@@ -185,12 +194,155 @@ strong {
   height: 50px;
 }
 
+
+@media screen and (min-width: 400px) and (max-width: 767px) {
+
+  #boxes {
+    padding: 40px;
+    display: block;
+    direction: rtl;
+    position: relative;
+
+   
+  }
+
+  #box-left {
+    width: 210px;
+    max-width: 50%;
+    height: 50px;
+    display: inline-block;
+    direction: ltr;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }  
+
+  #box-left p {
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+  }
+
+  #box-right {
+    height: 0;
+    width: 50%;
+    direction: ltr;
+    padding-bottom: 50%;
+    display: inline-block;
+  }
+  
+  #box-right .posright {
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    transform: translate(-50%, -45%);
+    position: relative;
+    top: 50%;
+    margin: 0;
+    line-height: normal;
+    left: 50%;
+    padding-top: 90%;
+    padding-bottom: 0;
+  
+  }
+
+  #boxes span {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+    background-color: #7b0051;
+    position: relative;
+    top: 70px;
+    padding: 15px;
+    left: 40px;
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #boxes {
+    padding: 40px;
+    display: block;
+    direction: rtl;
+    position: relative;
+
+   
+  }
+
+  #box-left {
+    width: 210px;
+    max-width: 50%;
+    height: 50px;
+    display: inline-block;
+    direction: ltr;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }  
+
+  #box-left p {
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+  }
+
+  #box-right {
+    height: 0;
+    width: 50%;
+    direction: ltr;
+    padding-bottom: 50%;
+    display: inline-block;
+  }
+  
+  #box-right .posright {
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    transform: translate(-50%, -45%);
+    position: relative;
+    top: 50%;
+    margin: 0;
+    line-height: normal;
+    left: 50%;
+    padding-top: 90%;
+    padding-bottom: 0;
+  
+  }
+
+  #boxes span {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+    background-color: #7b0051;
+    position: relative;
+    top: 70px;
+    padding: 15px;
+    left: 40px;
+  }
+
+}
+
+
+
 /*
 Accordion
 */
 
 .accordion {
-  margin: 30px;
+  margin: 0 auto;
 }
 .accordion dt, .accordion dd {
   padding: 10px;
@@ -206,7 +358,8 @@ Accordion
 }
 .accordion dd {
   border-top: 0;
-  font-size: 12px;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
 }
 .accordion dd:last-of-type {
   border-top: 1px solid white;
@@ -224,5 +377,7 @@ table td {
   box-sizing: border-box;
   border: 1px solid #ccc;
   vertical-align: top;
+  font-size: 1.4rem;
+  line-height: 2.2rem
 }
 
